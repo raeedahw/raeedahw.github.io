@@ -161,7 +161,7 @@
       </p>
     </div>
     <div>
-      <p class="resume"><a href="https://drive.google.com/file/d/1gETcUvbrBQdjRquSFIIRr0IqmDnvQZaw/view?usp=sharing" target="_blank">Resume</a></p>
+      <p class="resume"><a href="https://drive.google.com/file/d/1HgtkqiEoMrEGs-TxuWRtxubT90quHluI/view?usp=sharing" target="_blank">Resume</a></p>
     </div>
   </header>
 
