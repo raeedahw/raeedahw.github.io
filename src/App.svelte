@@ -166,7 +166,8 @@
   </header>
 
   <p class="nutgraf"> Data and graphics person at <a href="https://www.bloomberg.com/authors/AVRj3DR7f7s/raeedah-wahid" target="_blank"><b>Bloomberg</b></a>.</p>
-  <p class="nutgraf"> I'm an early-career journalist who studied computer science on the Vision, Graphics, Interaction, and Robotics track. (Also, human rights). I like telling visual stories centered around criminal justice and climate change.</p>
+  <p class="nutgraf"> I studied computer science on the Vision, Graphics, Interaction, and Robotics track at Barnard College and Columbia University. (Also, human rights.)</p>
+  <p class="nutgraf">I like telling visual stories centered around criminal justice, demography, development, and climate change.</p>
 
   <div class="nutgraf contact" class:contactFocused>
     <p>
@@ -186,6 +187,9 @@
     <p class="updated-text" style="font-size:16px"><b>Other work I've contributed to: </b><span style="text-transform: none;">
     <p class="updated-text">
       <ul>
+        <!--<li><a style="color:rgb(249, 0, 149)" href="https://www.bloomberg.com/news/articles/2023-03-03/is-airbnb-illegal-in-nyc-new-rules-will-block-listings-as-1-million-fines-fail/">An NYC Airbnb Racked Up $1 Million in Fines. New Rules Would Block the Listing</a><span style="text-transform: none;"></span></li>-->
+        <li><a style="color:rgb(249, 0, 149)" href="https://www.bloomberg.com/graphics/2023-svb-exposed-risks-banks/">US Banks Have $620 Billion of Unrealized Losses on Their Books</a><span style="text-transform: none;"></span></li>
+        <li><a style="color:rgb(249, 0, 149)" href="https://www.bloomberg.com/graphics/2023-credit-suisse-bank-decline-explainer-timeline/">Charting How Years of Stumbles Led to the End of Credit Suisse</a><span style="text-transform: none;"></span></li>
         <li><a style="color:rgb(249, 0, 149)" href="https://www.bloomberg.com/graphics/2021-nyc-police-overtime-pay/">NYC Cops Log Millions of Overtime Hours. New Yorkers Don’t Feel Safer.</a><span style="text-transform: none;"></span></li>
         <li><a style="color:rgb(249, 0, 149)" href="https://www.bloomberg.com/graphics/2021-wall-street-transformation-in-two-decades-since-9-11-attacks/">In Wake of 9/11, Wall Street Is More of a Notion Than an Address.</a><span style="text-transform: none;"></span></li>
       </ul>

@@ -2,6 +2,36 @@ export default {
   topLevel: [
     {
       name:
+        'Corporate America Promised to Hire a Lot More People of Color. It Actually Did.',
+     //image: 'images/eeo1-diversity.mov',
+     image: 'images/eeo1-screengrab-2.jpg',
+      url:
+        'https://www.bloomberg.com/graphics/2023-black-lives-matter-equal-opportunity-corporate-diversity/',
+      description: 'Led design, visualized data',
+      tools: 'R, Illustrator, (teeny) Svelte'
+    },
+    {
+      name:
+        'New York and California Each Lost $1 Trillion When Financial Firms Moved South',
+      image: 'images/asset-maps.jpg',
+      // image: 'images/celeb-scroll.mov',
+      url:
+        'https://www.bloomberg.com/graphics/2023-asset-management-relocation-wall-street-south/',
+      description: 'Visualized data (with our intern! shoutout Jade!)',
+      tools: 'QGIS, Python, Illustrator'
+    },
+    {
+      name:
+        'The Golden Era of Celebrity Beauty Brands Is Ending',
+      //image: 'images/celeb-static.jpg',
+      image: 'images/celeb-scroll.mov',
+      url:
+        'https://www.bloomberg.com/graphics/2023-celebrity-beauty-brands-makeup-skincare/',
+      description: 'Pitched, reported, analyzed data, designed, and developed',
+      tools: 'Svelte, Photoshop, Illustrator, SVG'
+    },
+    {
+      name:
         'Small Gunmakers Find State Weapons Bans Offer a Lucrative Niche',
       image: 'images/gun-static.jpg',
       url:
@@ -12,7 +42,7 @@ export default {
     {
       name:
         'A New Era of Climate Disasters Revives Calls for Climate Reparations',
-      image: 'images/flood-map-vid-again.mov',
+      image: 'images/flood-map.mov',
       url:
         'https://www.bloomberg.com/graphics/2022-pakistan-floods-climate-change-loss-damage-cop27/',
       description: 'Pitched, analyzed and visualized data.',
