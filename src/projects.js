@@ -2,13 +2,28 @@ export default {
   topLevel: [
     {
       name:
+        'Police Helicopter Flights and Spending Soar in New York City',
+     image: 'images/helicopter-thumbnail.jpg',
+      url:
+        'https://www.bloomberg.com/graphics/2024-nyc-police-helicopter-flights/',
+      tools: 'Python, GIS, Illustrator'
+    },
+    {
+      name:
+        'Goodbye Chairman, Hello Chair. The Gendered Title Is Fading Away',
+     image: 'images/gender-neutral-animation.mov',
+      url:
+        'https://www.bloomberg.com/graphics/2024-gender-neutral-board-titles-us-companies/?terminal=1',
+      tools: 'D3, Svelte, Illustrator'
+    },
+    {
+      name:
         'Corporate America Promised to Hire a Lot More People of Color. It Actually Did.',
      //image: 'images/eeo1-diversity.mov',
      image: 'images/eeo1-screengrab-2.jpg',
       url:
         'https://www.bloomberg.com/graphics/2023-black-lives-matter-equal-opportunity-corporate-diversity/',
-      description: 'Led design, visualized data',
-      tools: 'R, Illustrator, (teeny) Svelte'
+      tools: 'R, Illustrator, Svelte'
     },
     {
       name:
@@ -17,7 +32,7 @@ export default {
       // image: 'images/celeb-scroll.mov',
       url:
         'https://www.bloomberg.com/graphics/2023-asset-management-relocation-wall-street-south/',
-      description: 'Visualized data (with our intern! shoutout Jade!)',
+      description: 'Shoutout to our former intern, Jade!',
       tools: 'QGIS, Python, Illustrator'
     },
     {
@@ -27,7 +42,6 @@ export default {
       image: 'images/celeb-scroll.mov',
       url:
         'https://www.bloomberg.com/graphics/2023-celebrity-beauty-brands-makeup-skincare/',
-      description: 'Pitched, reported, analyzed data, designed, and developed',
       tools: 'Svelte, Photoshop, Illustrator, SVG'
     },
     {
@@ -36,7 +50,6 @@ export default {
       image: 'images/gun-static.jpg',
       url:
         'https://www.bloomberg.com/graphics/2022-gun-manufacturing/',
-      description: 'Visualized data.',
       tools: 'QGIS, Photoshop, Illustrator, Excel'
     },
     {
@@ -45,7 +58,6 @@ export default {
       image: 'images/flood-map.mov',
       url:
         'https://www.bloomberg.com/graphics/2022-pakistan-floods-climate-change-loss-damage-cop27/',
-      description: 'Pitched, analyzed and visualized data.',
       tools: 'Google Earth Engine, Copernicus Open Access Hub, QGIS, Illustrator, HTML/CSS, JS',
 
     },
@@ -55,7 +67,6 @@ export default {
       image: 'images/drone.mp4',
       url:
         'https://www.bloomberg.com/graphics/2022-harvard-university-of-texas-richest-college-oil-endowments/',
-      description: 'Visualized data.',
       tools: 'QGIS, Photoshop, Illustrator',
     },
     {
@@ -64,7 +75,6 @@ export default {
       image: 'images/media-mismatch.jpg',
       url:
         'https://www.bloomberg.com/graphics/2022-is-nyc-safe-crime-stat-reality/',
-      description: 'Reported, analyzed and visualized data.',
       tools: 'Svelte, Illustrator, Python, Apache Solr',
     },
     {
@@ -73,7 +83,6 @@ export default {
       image: 'images/abortion-hover.mov',
       url:
         'https://www.bloomberg.com/graphics/2022-supreme-court-roe-v-wade-abortion-access/',
-      description: 'Contributed to data collection and design.',
     },
     {
       name:
@@ -81,8 +90,7 @@ export default {
       image: 'images/sanctions.mov',
       url:
         'https://www.bloomberg.com/graphics/2022-russian-billionaires-sanctioned-ukraine-war/',
-      description: 'Managed database, analyzed and visualized data.',
-      tools: 'Excel, Python, (teeny) Svelte, Illustrator',
+      tools: 'Excel, Python, Svelte, Illustrator',
     },
     {
       name:
@@ -90,7 +98,7 @@ export default {
       image: 'images/scmp.jpg',
       url:
         'https://nightingaledvs.com/on-the-success-of-the-south-china-morning-post-infographics-team/',
-      description: 'Interviewed the SCMP Infographics team. Remembering Darren Long.',
+      description: 'Remembering Darren Long.',
     },
     {
       name:
@@ -98,18 +106,9 @@ export default {
       image: 'images/city.jpg',
       url:
         'https://www.bloomberg.com/graphics/2021-nyc-mayoral-analysis/',
-      description: 'Reported, wrote, analyzed and visualized data.',
       tools: 'QGIS, Excel, Python, Illustrator',
     },
-    {
-      name:
-        'What happened to NYPD officers who were charged with misconduct? They were promoted or paid more.',
-      image: 'images/policing.jpg',
-      url:
-        'https://www.columbiaspectator.com/news/2020/09/22/what-happened-to-nypd-officers-who-were-charged-with-misconduct-they-were-promoted-or-paid-more/',
-      description: 'Analyzed and visualized data.',
-      tools: 'Python, Illustrator',
-      },
+
     {
       name:
         'The U.S. and Ivy League schools were late to respond to COVID-19. Data shows international universities did better.',
@@ -119,7 +118,6 @@ export default {
         'https://cloudfront-us-east-1.images.arcpublishing.com/spectator/Q4S24TEP2ZFTNH6P245MIKDQYY.gif',
       url:
         'https://www.columbiaspectator.com/news/2020/04/13/the-us-and-ivy-league-schools-were-late-to-respond-to-covid-19-data-shows-international-universities-did-better/',
-      description: 'Helped write, analyze and visualize data. Edited story and graphics.'
       },
     {
       name:
@@ -128,7 +126,6 @@ export default {
         'images/diversity-report.gif',
       url:
         'http://www.specpublishing.com/diversity-report',
-      description: 'Created and distributed survey, wrote, analyzed and visualized data for report, developed webpage.',
     },
   ]
 };

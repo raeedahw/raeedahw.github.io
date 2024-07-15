@@ -75,9 +75,6 @@ function destroy_each(iterations, detaching) {
 function element(name) {
     return document.createElement(name);
 }
-function svg_element(name) {
-    return document.createElementNS('http://www.w3.org/2000/svg', name);
-}
 function text(data) {
     return document.createTextNode(data);
 }
@@ -496,7 +493,7 @@ function get_each_context(ctx, list, i) {
 	return child_ctx;
 }
 
-// (103:10) {:else}
+// (114:10) {:else}
 function create_else_block(ctx) {
 	let picture;
 	let show_if = /*image*/ ctx[11].includes(".webp");
@@ -514,9 +511,9 @@ function create_else_block(ctx) {
 			img = element("img");
 			if (img.src !== (img_src_value = /*image*/ ctx[11].replace(".webp", ".png"))) attr_dev(img, "src", img_src_value);
 			attr_dev(img, "alt", img_alt_value = /*name*/ ctx[10]);
-			attr_dev(img, "class", "svelte-w7ovmd");
-			add_location(img, file, 107, 14, 2372);
-			add_location(picture, file, 103, 12, 2219);
+			attr_dev(img, "class", "svelte-p2qbv");
+			add_location(img, file, 118, 14, 2375);
+			add_location(picture, file, 114, 12, 2222);
 		},
 		m: function mount(target, anchor) {
 			insert_dev(target, picture, anchor);
@@ -558,14 +555,14 @@ function create_else_block(ctx) {
 		block,
 		id: create_else_block.name,
 		type: "else",
-		source: "(103:10) {:else}",
+		source: "(114:10) {:else}",
 		ctx
 	});
 
 	return block;
 }
 
-// (99:10) {#if image.includes('.mp4') || image.includes('.mov')}
+// (110:10) {#if image.includes('.mp4') || image.includes('.mov')}
 function create_if_block_5(ctx) {
 	let video;
 	let source;
@@ -576,13 +573,13 @@ function create_if_block_5(ctx) {
 			video = element("video");
 			source = element("source");
 			if (source.src !== (source_src_value = /*image*/ ctx[11])) attr_dev(source, "src", source_src_value);
-			add_location(source, file, 100, 14, 2145);
+			add_location(source, file, 111, 14, 2148);
 			video.autoplay = true;
 			video.playsInline = true;
 			video.muted = true;
 			video.loop = true;
-			attr_dev(video, "class", "svelte-w7ovmd");
-			add_location(video, file, 99, 12, 2091);
+			attr_dev(video, "class", "svelte-p2qbv");
+			add_location(video, file, 110, 12, 2094);
 		},
 		m: function mount(target, anchor) {
 			insert_dev(target, video, anchor);
@@ -602,14 +599,14 @@ function create_if_block_5(ctx) {
 		block,
 		id: create_if_block_5.name,
 		type: "if",
-		source: "(99:10) {#if image.includes('.mp4') || image.includes('.mov')}",
+		source: "(110:10) {#if image.includes('.mp4') || image.includes('.mov')}",
 		ctx
 	});
 
 	return block;
 }
 
-// (105:14) {#if image.includes('.webp')}
+// (116:14) {#if image.includes('.webp')}
 function create_if_block_6(ctx) {
 	let source;
 	let source_srcset_value;
@@ -619,7 +616,7 @@ function create_if_block_6(ctx) {
 			source = element("source");
 			attr_dev(source, "srcset", source_srcset_value = "" + (/*image*/ ctx[11] + " 1x"));
 			attr_dev(source, "type", "image/webp");
-			add_location(source, file, 105, 16, 2289);
+			add_location(source, file, 116, 16, 2292);
 		},
 		m: function mount(target, anchor) {
 			insert_dev(target, source, anchor);
@@ -638,14 +635,14 @@ function create_if_block_6(ctx) {
 		block,
 		id: create_if_block_6.name,
 		type: "if",
-		source: "(105:14) {#if image.includes('.webp')}",
+		source: "(116:14) {#if image.includes('.webp')}",
 		ctx
 	});
 
 	return block;
 }
 
-// (114:10) {#if date && date.length > 0}
+// (125:10) {#if date && date.length > 0}
 function create_if_block_4(ctx) {
 	let span;
 	let t_value = /*date*/ ctx[15] + "";
@@ -655,8 +652,8 @@ function create_if_block_4(ctx) {
 		c: function create() {
 			span = element("span");
 			t = text(t_value);
-			attr_dev(span, "class", "meta svelte-w7ovmd");
-			add_location(span, file, 114, 12, 2569);
+			attr_dev(span, "class", "meta svelte-p2qbv");
+			add_location(span, file, 125, 12, 2572);
 		},
 		m: function mount(target, anchor) {
 			insert_dev(target, span, anchor);
@@ -674,14 +671,14 @@ function create_if_block_4(ctx) {
 		block,
 		id: create_if_block_4.name,
 		type: "if",
-		source: "(114:10) {#if date && date.length > 0}",
+		source: "(125:10) {#if date && date.length > 0}",
 		ctx
 	});
 
 	return block;
 }
 
-// (120:6) {#if repo}
+// (131:6) {#if repo}
 function create_if_block_3(ctx) {
 	let span;
 	let a;
@@ -694,10 +691,10 @@ function create_if_block_3(ctx) {
 			a = element("a");
 			t = text("[repo]");
 			attr_dev(a, "href", a_href_value = "https://github.com/graphicsdesk/" + /*repo*/ ctx[16]);
-			attr_dev(a, "class", "svelte-w7ovmd");
-			add_location(a, file, 121, 10, 2702);
-			attr_dev(span, "class", "meta git svelte-w7ovmd");
-			add_location(span, file, 120, 8, 2668);
+			attr_dev(a, "class", "svelte-p2qbv");
+			add_location(a, file, 132, 10, 2705);
+			attr_dev(span, "class", "meta git svelte-p2qbv");
+			add_location(span, file, 131, 8, 2671);
 		},
 		m: function mount(target, anchor) {
 			insert_dev(target, span, anchor);
@@ -718,14 +715,14 @@ function create_if_block_3(ctx) {
 		block,
 		id: create_if_block_3.name,
 		type: "if",
-		source: "(120:6) {#if repo}",
+		source: "(131:6) {#if repo}",
 		ctx
 	});
 
 	return block;
 }
 
-// (125:6) {#if data}
+// (136:6) {#if data}
 function create_if_block_2(ctx) {
 	let span;
 	let a;
@@ -738,10 +735,10 @@ function create_if_block_2(ctx) {
 			a = element("a");
 			t = text("[data]");
 			attr_dev(a, "href", a_href_value = "https://github.com/graphicsdesk/" + /*data*/ ctx[17]);
-			attr_dev(a, "class", "svelte-w7ovmd");
-			add_location(a, file, 126, 10, 2849);
-			attr_dev(span, "class", "meta git svelte-w7ovmd");
-			add_location(span, file, 125, 8, 2815);
+			attr_dev(a, "class", "svelte-p2qbv");
+			add_location(a, file, 137, 10, 2852);
+			attr_dev(span, "class", "meta git svelte-p2qbv");
+			add_location(span, file, 136, 8, 2818);
 		},
 		m: function mount(target, anchor) {
 			insert_dev(target, span, anchor);
@@ -762,17 +759,18 @@ function create_if_block_2(ctx) {
 		block,
 		id: create_if_block_2.name,
 		type: "if",
-		source: "(125:6) {#if data}",
+		source: "(136:6) {#if data}",
 		ctx
 	});
 
 	return block;
 }
 
-// (131:6) {#if description}
+// (142:6) {#if description}
 function create_if_block_1(ctx) {
 	let p;
 	let br;
+	let i;
 	let t_value = /*description*/ ctx[12] + "";
 	let t;
 
@@ -780,15 +778,18 @@ function create_if_block_1(ctx) {
 		c: function create() {
 			p = element("p");
 			br = element("br");
+			i = element("i");
 			t = text(t_value);
-			add_location(br, file, 131, 31, 2993);
-			attr_dev(p, "class", "description svelte-w7ovmd");
-			add_location(p, file, 131, 8, 2970);
+			add_location(br, file, 142, 31, 2996);
+			add_location(i, file, 142, 35, 3000);
+			attr_dev(p, "class", "description svelte-p2qbv");
+			add_location(p, file, 142, 8, 2973);
 		},
 		m: function mount(target, anchor) {
 			insert_dev(target, p, anchor);
 			append_dev(p, br);
-			append_dev(p, t);
+			append_dev(p, i);
+			append_dev(i, t);
 		},
 		p: function update(ctx, dirty) {
 			if (dirty & /*projects*/ 1 && t_value !== (t_value = /*description*/ ctx[12] + "")) set_data_dev(t, t_value);
@@ -802,14 +803,14 @@ function create_if_block_1(ctx) {
 		block,
 		id: create_if_block_1.name,
 		type: "if",
-		source: "(131:6) {#if description}",
+		source: "(142:6) {#if description}",
 		ctx
 	});
 
 	return block;
 }
 
-// (135:6) {#if tools}
+// (146:6) {#if tools}
 function create_if_block(ctx) {
 	let p;
 	let br;
@@ -824,10 +825,10 @@ function create_if_block(ctx) {
 			b = element("b");
 			b.textContent = "Tools I used: ";
 			t1 = text(t1_value);
-			add_location(br, file, 135, 25, 3071);
-			add_location(b, file, 135, 29, 3075);
-			attr_dev(p, "class", "tools svelte-w7ovmd");
-			add_location(p, file, 135, 8, 3054);
+			add_location(br, file, 146, 25, 3081);
+			add_location(b, file, 146, 29, 3085);
+			attr_dev(p, "class", "tools svelte-p2qbv");
+			add_location(p, file, 146, 8, 3064);
 		},
 		m: function mount(target, anchor) {
 			insert_dev(target, p, anchor);
@@ -847,14 +848,14 @@ function create_if_block(ctx) {
 		block,
 		id: create_if_block.name,
 		type: "if",
-		source: "(135:6) {#if tools}",
+		source: "(146:6) {#if tools}",
 		ctx
 	});
 
 	return block;
 }
 
-// (95:2) {#each projects as { name, image, description, tools, url, date, repo, data }
+// (106:2) {#each projects as { name, image, description, tools, url, date, repo, data }
 function create_each_block(ctx) {
 	let div1;
 	let a;
@@ -905,17 +906,17 @@ function create_each_block(ctx) {
 			t5 = space();
 			if (if_block5) if_block5.c();
 			t6 = space();
-			attr_dev(div0, "class", "media svelte-w7ovmd");
+			attr_dev(div0, "class", "media svelte-p2qbv");
 			set_style(div0, "height", Math.round(/*mediaHeight*/ ctx[3]) + "px");
-			add_location(div0, file, 97, 8, 1950);
+			add_location(div0, file, 108, 8, 1953);
 			html_tag = new HtmlTag(raw_value, t1);
-			attr_dev(p, "class", "svelte-w7ovmd");
-			add_location(p, file, 111, 8, 2490);
+			attr_dev(p, "class", "svelte-p2qbv");
+			add_location(p, file, 122, 8, 2493);
 			attr_dev(a, "href", a_href_value = /*url*/ ctx[14]);
 			attr_dev(a, "target", "_blank");
 			set_style(a, "color", /*color*/ ctx[5](/*index*/ ctx[19]));
-			add_location(a, file, 96, 6, 1881);
-			add_location(div1, file, 95, 4, 1869);
+			add_location(a, file, 107, 6, 1884);
+			add_location(div1, file, 106, 4, 1872);
 		},
 		m: function mount(target, anchor) {
 			insert_dev(target, div1, anchor);
@@ -1040,7 +1041,7 @@ function create_each_block(ctx) {
 		block,
 		id: create_each_block.name,
 		type: "each",
-		source: "(95:2) {#each projects as { name, image, description, tools, url, date, repo, data }",
+		source: "(106:2) {#each projects as { name, image, description, tools, url, date, repo, data }",
 		ctx
 	});
 
@@ -1067,10 +1068,10 @@ function create_fragment(ctx) {
 				each_blocks[i].c();
 			}
 
-			attr_dev(div, "class", "grid svelte-w7ovmd");
+			attr_dev(div, "class", "grid svelte-p2qbv");
 			attr_dev(div, "style", div_style_value = "grid-template-columns: " + /*gridColumns*/ ctx[4] + "; column-gap: " + (/*columns*/ ctx[1] > 1 ? columnGap : 0) + "px;\n  " + (/*columns*/ ctx[1] === 1 && "text-align: center"));
 			add_render_callback(() => /*div_elementresize_handler*/ ctx[9].call(div));
-			add_location(div, file, 88, 0, 1601);
+			add_location(div, file, 99, 0, 1604);
 		},
 		l: function claim(nodes) {
 			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -1267,7 +1268,7 @@ class Grid extends SvelteComponentDev {
 
 const file$1 = "src/SectionHeader.svelte";
 
-// (34:0) {#if !hideHr}
+// (38:0) {#if !hideHr}
 function create_if_block_1$1(ctx) {
 	let hr;
 
@@ -1275,8 +1276,8 @@ function create_if_block_1$1(ctx) {
 		c: function create() {
 			hr = element("hr");
 			attr_dev(hr, "id", /*id*/ ctx[0]);
-			attr_dev(hr, "class", "svelte-xoiyjb");
-			add_location(hr, file$1, 34, 2, 643);
+			attr_dev(hr, "class", "svelte-3z7kxd");
+			add_location(hr, file$1, 38, 2, 620);
 		},
 		m: function mount(target, anchor) {
 			insert_dev(target, hr, anchor);
@@ -1295,14 +1296,14 @@ function create_if_block_1$1(ctx) {
 		block,
 		id: create_if_block_1$1.name,
 		type: "if",
-		source: "(34:0) {#if !hideHr}",
+		source: "(38:0) {#if !hideHr}",
 		ctx
 	});
 
 	return block;
 }
 
-// (37:0) {#if !empty}
+// (41:0) {#if !empty}
 function create_if_block$1(ctx) {
 	let p;
 	let t;
@@ -1315,9 +1316,9 @@ function create_if_block$1(ctx) {
 			p = element("p");
 			if (default_slot) default_slot.c();
 			t = text(":");
-			attr_dev(p, "class", "svelte-xoiyjb");
+			attr_dev(p, "class", "svelte-3z7kxd");
 			toggle_class(p, "centered", /*centered*/ ctx[3]);
-			add_location(p, file$1, 37, 2, 676);
+			add_location(p, file$1, 41, 2, 653);
 		},
 		m: function mount(target, anchor) {
 			insert_dev(target, p, anchor);
@@ -1359,7 +1360,7 @@ function create_if_block$1(ctx) {
 		block,
 		id: create_if_block$1.name,
 		type: "if",
-		source: "(37:0) {#if !empty}",
+		source: "(41:0) {#if !empty}",
 		ctx
 	});
 
@@ -1543,13 +1544,28 @@ var projects = {
   topLevel: [
     {
       name:
+        'Police Helicopter Flights and Spending Soar in New York City',
+     image: 'images/helicopter-thumbnail.jpg',
+      url:
+        'https://www.bloomberg.com/graphics/2024-nyc-police-helicopter-flights/',
+      tools: 'Python, GIS, Illustrator'
+    },
+    {
+      name:
+        'Goodbye Chairman, Hello Chair. The Gendered Title Is Fading Away',
+     image: 'images/gender-neutral-animation.mov',
+      url:
+        'https://www.bloomberg.com/graphics/2024-gender-neutral-board-titles-us-companies/?terminal=1',
+      tools: 'D3, Svelte, Illustrator'
+    },
+    {
+      name:
         'Corporate America Promised to Hire a Lot More People of Color. It Actually Did.',
      //image: 'images/eeo1-diversity.mov',
      image: 'images/eeo1-screengrab-2.jpg',
       url:
         'https://www.bloomberg.com/graphics/2023-black-lives-matter-equal-opportunity-corporate-diversity/',
-      description: 'Led design, visualized data',
-      tools: 'R, Illustrator, (teeny) Svelte'
+      tools: 'R, Illustrator, Svelte'
     },
     {
       name:
@@ -1558,7 +1574,7 @@ var projects = {
       // image: 'images/celeb-scroll.mov',
       url:
         'https://www.bloomberg.com/graphics/2023-asset-management-relocation-wall-street-south/',
-      description: 'Visualized data (with our intern! shoutout Jade!)',
+      description: 'Shoutout to our former intern, Jade!',
       tools: 'QGIS, Python, Illustrator'
     },
     {
@@ -1568,7 +1584,6 @@ var projects = {
       image: 'images/celeb-scroll.mov',
       url:
         'https://www.bloomberg.com/graphics/2023-celebrity-beauty-brands-makeup-skincare/',
-      description: 'Pitched, reported, analyzed data, designed, and developed',
       tools: 'Svelte, Photoshop, Illustrator, SVG'
     },
     {
@@ -1577,7 +1592,6 @@ var projects = {
       image: 'images/gun-static.jpg',
       url:
         'https://www.bloomberg.com/graphics/2022-gun-manufacturing/',
-      description: 'Visualized data.',
       tools: 'QGIS, Photoshop, Illustrator, Excel'
     },
     {
@@ -1586,7 +1600,6 @@ var projects = {
       image: 'images/flood-map.mov',
       url:
         'https://www.bloomberg.com/graphics/2022-pakistan-floods-climate-change-loss-damage-cop27/',
-      description: 'Pitched, analyzed and visualized data.',
       tools: 'Google Earth Engine, Copernicus Open Access Hub, QGIS, Illustrator, HTML/CSS, JS',
 
     },
@@ -1596,7 +1609,6 @@ var projects = {
       image: 'images/drone.mp4',
       url:
         'https://www.bloomberg.com/graphics/2022-harvard-university-of-texas-richest-college-oil-endowments/',
-      description: 'Visualized data.',
       tools: 'QGIS, Photoshop, Illustrator',
     },
     {
@@ -1605,7 +1617,6 @@ var projects = {
       image: 'images/media-mismatch.jpg',
       url:
         'https://www.bloomberg.com/graphics/2022-is-nyc-safe-crime-stat-reality/',
-      description: 'Reported, analyzed and visualized data.',
       tools: 'Svelte, Illustrator, Python, Apache Solr',
     },
     {
@@ -1614,7 +1625,6 @@ var projects = {
       image: 'images/abortion-hover.mov',
       url:
         'https://www.bloomberg.com/graphics/2022-supreme-court-roe-v-wade-abortion-access/',
-      description: 'Contributed to data collection and design.',
     },
     {
       name:
@@ -1622,8 +1632,7 @@ var projects = {
       image: 'images/sanctions.mov',
       url:
         'https://www.bloomberg.com/graphics/2022-russian-billionaires-sanctioned-ukraine-war/',
-      description: 'Managed database, analyzed and visualized data.',
-      tools: 'Excel, Python, (teeny) Svelte, Illustrator',
+      tools: 'Excel, Python, Svelte, Illustrator',
     },
     {
       name:
@@ -1631,7 +1640,7 @@ var projects = {
       image: 'images/scmp.jpg',
       url:
         'https://nightingaledvs.com/on-the-success-of-the-south-china-morning-post-infographics-team/',
-      description: 'Interviewed the SCMP Infographics team. Remembering Darren Long.',
+      description: 'Remembering Darren Long.',
     },
     {
       name:
@@ -1639,18 +1648,9 @@ var projects = {
       image: 'images/city.jpg',
       url:
         'https://www.bloomberg.com/graphics/2021-nyc-mayoral-analysis/',
-      description: 'Reported, wrote, analyzed and visualized data.',
       tools: 'QGIS, Excel, Python, Illustrator',
     },
-    {
-      name:
-        'What happened to NYPD officers who were charged with misconduct? They were promoted or paid more.',
-      image: 'images/policing.jpg',
-      url:
-        'https://www.columbiaspectator.com/news/2020/09/22/what-happened-to-nypd-officers-who-were-charged-with-misconduct-they-were-promoted-or-paid-more/',
-      description: 'Analyzed and visualized data.',
-      tools: 'Python, Illustrator',
-      },
+
     {
       name:
         'The U.S. and Ivy League schools were late to respond to COVID-19. Data shows international universities did better.',
@@ -1660,7 +1660,6 @@ var projects = {
         'https://cloudfront-us-east-1.images.arcpublishing.com/spectator/Q4S24TEP2ZFTNH6P245MIKDQYY.gif',
       url:
         'https://www.columbiaspectator.com/news/2020/04/13/the-us-and-ivy-league-schools-were-late-to-respond-to-covid-19-data-shows-international-universities-did-better/',
-      description: 'Helped write, analyze and visualize data. Edited story and graphics.'
       },
     {
       name:
@@ -1669,7 +1668,6 @@ var projects = {
         'images/diversity-report.gif',
       url:
         'http://www.specpublishing.com/diversity-report',
-      description: 'Created and distributed survey, wrote, analyzed and visualized data for report, developed webpage.',
     },
   ]
 };
@@ -1695,7 +1693,7 @@ function create_each_block$1(ctx) {
 			t = text(t_value);
 			set_style(emoji, "left", /*c*/ ctx[3].x + "%");
 			set_style(emoji, "top", /*c*/ ctx[3].y + "%");
-			attr_dev(emoji, "class", "svelte-wgaio3");
+			attr_dev(emoji, "class", "svelte-15il7ul");
 			add_location(emoji, file$2, 43, 1, 850);
 		},
 		m: function mount(target, anchor) {
@@ -1750,50 +1748,20 @@ function create_fragment$2(ctx) {
 	let p3;
 	let t10;
 	let p4;
-	let t12;
-	let div2;
-	let p5;
-	let svg0;
+	let t11;
 	let a2;
-	let path0;
 	let t13;
-	let svg1;
-	let a3;
-	let path1;
 	let t14;
-	let svg2;
-	let a4;
-	let path2;
+	let br;
 	let t15;
 	let t16;
 	let footer;
 	let t17;
-	let p7;
-	let b2;
-	let span4;
-	let p6;
-	let ul;
-	let li0;
-	let a5;
-	let span0;
+	let p5;
+	let t18;
+	let a3;
 	let t20;
-	let li1;
-	let a6;
-	let span1;
-	let t22;
-	let li2;
-	let a7;
-	let span2;
-	let t24;
-	let li3;
-	let a8;
-	let span3;
-	let t26;
-	let p8;
-	let t27;
-	let a9;
-	let t29;
-	let span5;
+	let span;
 	let current;
 	let each_value = /*confetti*/ ctx[0];
 	validate_each_argument(each_value);
@@ -1827,7 +1795,7 @@ function create_fragment$2(ctx) {
 			div1 = element("div");
 			p1 = element("p");
 			a0 = element("a");
-			a0.textContent = "Resume";
+			a0.textContent = "Resume (+ awards)";
 			t4 = space();
 			p2 = element("p");
 			t5 = text("Data and graphics person at ");
@@ -1837,180 +1805,73 @@ function create_fragment$2(ctx) {
 			t7 = text(".");
 			t8 = space();
 			p3 = element("p");
-			p3.textContent = "I studied computer science on the Vision, Graphics, Interaction, and Robotics track at Barnard College and Columbia University. (Also, human rights.)";
+			p3.textContent = "I live in New York City. I studied computer science on the Vision and Graphics track at Barnard College and Columbia University. (Also, human rights.)";
 			t10 = space();
 			p4 = element("p");
-			p4.textContent = "I like telling visual stories centered around criminal justice, demography, development, and climate change.";
-			t12 = space();
-			div2 = element("div");
-			p5 = element("p");
-			svg0 = svg_element("svg");
-			a2 = svg_element("a");
-			path0 = svg_element("path");
-			t13 = space();
-			svg1 = svg_element("svg");
-			a3 = svg_element("a");
-			path1 = svg_element("path");
+			t11 = text("Most recently, I was on the team recognized as a ");
+			a2 = element("a");
+			a2.textContent = "2024 Pulitzer Prize Finalist in Explantory Reporting";
+			t13 = text(".");
 			t14 = space();
-			svg2 = svg_element("svg");
-			a4 = svg_element("a");
-			path2 = svg_element("path");
+			br = element("br");
 			t15 = space();
 			create_component(grid.$$.fragment);
 			t16 = space();
 			footer = element("footer");
 			create_component(sectionheader.$$.fragment);
 			t17 = space();
-			p7 = element("p");
-			b2 = element("b");
-			b2.textContent = "Other work I've contributed to: ";
-			span4 = element("span");
-			p6 = element("p");
-			ul = element("ul");
-			li0 = element("li");
-			a5 = element("a");
-			a5.textContent = "US Banks Have $620 Billion of Unrealized Losses on Their Books";
-			span0 = element("span");
-			t20 = space();
-			li1 = element("li");
-			a6 = element("a");
-			a6.textContent = "Charting How Years of Stumbles Led to the End of Credit Suisse";
-			span1 = element("span");
-			t22 = space();
-			li2 = element("li");
-			a7 = element("a");
-			a7.textContent = "NYC Cops Log Millions of Overtime Hours. New Yorkers Don’t Feel Safer.";
-			span2 = element("span");
-			t24 = space();
-			li3 = element("li");
-			a8 = element("a");
-			a8.textContent = "In Wake of 9/11, Wall Street Is More of a Notion Than an Address.";
-			span3 = element("span");
-			t26 = space();
-			p8 = element("p");
-			t27 = text("Made under the ");
-			a9 = element("a");
-			a9.textContent = "Creative Commons Attribution-ShareAlike 4.0 International License";
-			t29 = text(". Updated October 2022. ");
-			span5 = element("span");
-			add_location(b0, file$2, 127, 8, 2383);
-			add_location(p0, file$2, 126, 6, 2371);
-			attr_dev(div0, "class", "svelte-wgaio3");
-			add_location(div0, file$2, 125, 4, 2359);
-			attr_dev(a0, "href", "https://drive.google.com/file/d/1HgtkqiEoMrEGs-TxuWRtxubT90quHluI/view?usp=sharing");
+			p5 = element("p");
+			t18 = text("Made under the ");
+			a3 = element("a");
+			a3.textContent = "Creative Commons Attribution-ShareAlike 4.0 International License";
+			t20 = text(". Updated July 2024. ");
+			span = element("span");
+			add_location(b0, file$2, 151, 8, 2455);
+			add_location(p0, file$2, 150, 6, 2443);
+			attr_dev(div0, "class", "svelte-15il7ul");
+			add_location(div0, file$2, 149, 4, 2431);
+			attr_dev(a0, "href", "https://drive.google.com/file/d/17cay8LiKDV1kjAgBKaOdohGgVRDXOAgY/view?usp=sharing");
 			attr_dev(a0, "target", "_blank");
-			attr_dev(a0, "class", "svelte-wgaio3");
-			add_location(a0, file$2, 131, 24, 2460);
-			attr_dev(p1, "class", "resume svelte-wgaio3");
-			add_location(p1, file$2, 131, 6, 2442);
-			attr_dev(div1, "class", "svelte-wgaio3");
-			add_location(div1, file$2, 130, 4, 2430);
-			attr_dev(header, "class", "svelte-wgaio3");
-			add_location(header, file$2, 124, 2, 2346);
-			add_location(b1, file$2, 135, 136, 2744);
+			attr_dev(a0, "class", "svelte-15il7ul");
+			add_location(a0, file$2, 155, 24, 2532);
+			attr_dev(p1, "class", "resume svelte-15il7ul");
+			add_location(p1, file$2, 155, 6, 2514);
+			attr_dev(div1, "class", "svelte-15il7ul");
+			add_location(div1, file$2, 154, 4, 2502);
+			attr_dev(header, "class", "svelte-15il7ul");
+			add_location(header, file$2, 148, 2, 2418);
+			add_location(b1, file$2, 159, 136, 2827);
 			attr_dev(a1, "href", "https://www.bloomberg.com/authors/AVRj3DR7f7s/raeedah-wahid");
 			attr_dev(a1, "target", "_blank");
-			add_location(a1, file$2, 135, 50, 2658);
-			attr_dev(p2, "class", "nutgraf svelte-wgaio3");
-			add_location(p2, file$2, 135, 2, 2610);
-			attr_dev(p3, "class", "nutgraf svelte-wgaio3");
-			add_location(p3, file$2, 136, 2, 2772);
-			attr_dev(p4, "class", "nutgraf svelte-wgaio3");
-			add_location(p4, file$2, 137, 2, 2948);
-			attr_dev(path0, "d", "M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z");
-			attr_dev(path0, "fill", "#ff0095");
-			add_location(path0, file$2, 142, 189, 4254);
-			attr_dev(a2, "href", "https://twitter.com/raeedahwahid");
+			add_location(a1, file$2, 159, 50, 2741);
+			attr_dev(p2, "class", "nutgraf svelte-15il7ul");
+			add_location(p2, file$2, 159, 2, 2693);
+			attr_dev(p3, "class", "nutgraf svelte-15il7ul");
+			add_location(p3, file$2, 160, 2, 2855);
+			set_style(a2, "font-weight", "700");
+			set_style(a2, "color", "#444");
+			attr_dev(a2, "href", "https://www.pulitzer.org/finalists/staff-bloomberg");
 			attr_dev(a2, "target", "_blank");
-			attr_dev(a2, "class", "svelte-wgaio3");
-			add_location(a2, file$2, 142, 130, 4195);
-			set_style(svg0, "color", "rgb(255, 0, 149)");
-			attr_dev(svg0, "width", "25");
-			attr_dev(svg0, "height", "25");
-			attr_dev(svg0, "fill", "currentColor");
-			attr_dev(svg0, "class", "bi bi-twitter");
-			attr_dev(svg0, "viewBox", "0 0 16 16");
-			add_location(svg0, file$2, 142, 6, 4071);
-			attr_dev(path1, "d", "M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z");
-			attr_dev(path1, "fill", "#f90095");
-			add_location(path1, file$2, 144, 354, 5953);
-			attr_dev(a3, "href", "https://github.com/raeedahw");
-			attr_dev(a3, "target", "_blank");
-			attr_dev(a3, "class", "svelte-wgaio3");
-			add_location(a3, file$2, 144, 300, 5899);
-			set_style(svg1, "color", "rgb(249, 0, 149)");
-			attr_dev(svg1, "width", "30");
-			attr_dev(svg1, "height", "25");
-			attr_dev(svg1, "viewBox", "0 0 450 500");
-			add_location(svg1, file$2, 144, 6, 5605);
-			attr_dev(path2, "d", "M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z");
-			attr_dev(path2, "fill", "#ff0095");
-			add_location(path2, file$2, 145, 200, 6997);
-			attr_dev(a4, "href", "https://www.linkedin.com/in/raeedah-wahid");
-			attr_dev(a4, "target", "_blank");
-			attr_dev(a4, "class", "svelte-wgaio3");
-			add_location(a4, file$2, 145, 131, 6928);
-			set_style(svg2, "color", "rgb(255, 0, 149)");
-			attr_dev(svg2, "width", "30");
-			attr_dev(svg2, "height", "23");
-			attr_dev(svg2, "fill", "currentColor");
-			attr_dev(svg2, "class", "bi bi-linkedin");
-			attr_dev(svg2, "viewBox", "0 0 16 16");
-			add_location(svg2, file$2, 145, 6, 6803);
-			attr_dev(p5, "class", "svelte-wgaio3");
-			add_location(p5, file$2, 140, 4, 3138);
-			attr_dev(div2, "class", "nutgraf contact svelte-wgaio3");
-			toggle_class(div2, "contactFocused", /*contactFocused*/ ctx[1]);
-			add_location(div2, file$2, 139, 2, 3083);
-			add_location(b2, file$2, 154, 51, 7755);
-			attr_dev(p6, "class", "updated-text svelte-wgaio3");
-			add_location(p6, file$2, 155, 4, 7835);
-			set_style(a5, "color", "rgb(249, 0, 149)");
-			attr_dev(a5, "href", "https://www.bloomberg.com/graphics/2023-svb-exposed-risks-banks/");
-			add_location(a5, file$2, 158, 12, 8205);
-			set_style(span0, "text-transform", "none");
-			add_location(span0, file$2, 158, 184, 8377);
-			add_location(li0, file$2, 158, 8, 8201);
-			set_style(a6, "color", "rgb(249, 0, 149)");
-			attr_dev(a6, "href", "https://www.bloomberg.com/graphics/2023-credit-suisse-bank-decline-explainer-timeline/");
-			add_location(a6, file$2, 159, 12, 8438);
-			set_style(span1, "text-transform", "none");
-			add_location(span1, file$2, 159, 206, 8632);
-			add_location(li1, file$2, 159, 8, 8434);
-			set_style(a7, "color", "rgb(249, 0, 149)");
-			attr_dev(a7, "href", "https://www.bloomberg.com/graphics/2021-nyc-police-overtime-pay/");
-			add_location(a7, file$2, 160, 12, 8693);
-			set_style(span2, "text-transform", "none");
-			add_location(span2, file$2, 160, 192, 8873);
-			add_location(li2, file$2, 160, 8, 8689);
-			set_style(a8, "color", "rgb(249, 0, 149)");
-			attr_dev(a8, "href", "https://www.bloomberg.com/graphics/2021-wall-street-transformation-in-two-decades-since-9-11-attacks/");
-			add_location(a8, file$2, 161, 12, 8934);
-			set_style(span3, "text-transform", "none");
-			add_location(span3, file$2, 161, 224, 9146);
-			add_location(li3, file$2, 161, 8, 8930);
-			add_location(ul, file$2, 156, 6, 7866);
-			set_style(span4, "text-transform", "none");
-			add_location(span4, file$2, 154, 90, 7794);
-			attr_dev(p7, "class", "updated-text svelte-wgaio3");
-			set_style(p7, "font-size", "16px");
-			add_location(p7, file$2, 154, 4, 7708);
-			set_style(a9, "color", "#666");
-			attr_dev(a9, "href", "http://creativecommons.org/licenses/by-sa/4.0/");
-			add_location(a9, file$2, 164, 141, 9357);
-			set_style(span5, "text-transform", "none");
-			add_location(span5, file$2, 164, 310, 9526);
-			attr_dev(p8, "class", "updated-text svelte-wgaio3");
-			set_style(p8, "padding-bottom", "2%");
-			set_style(p8, "font-size", "14px");
-			set_style(p8, "color", "#666");
-			set_style(p8, "font-family", "'IBM Plex Mono', monospace");
-			add_location(p8, file$2, 164, 4, 9220);
-			attr_dev(footer, "class", "svelte-wgaio3");
-			add_location(footer, file$2, 152, 2, 7667);
+			add_location(a2, file$2, 161, 70, 3101);
+			attr_dev(p4, "class", "nutgraf svelte-15il7ul");
+			add_location(p4, file$2, 161, 2, 3033);
+			add_location(br, file$2, 172, 2, 5396);
+			set_style(a3, "color", "#666");
+			attr_dev(a3, "href", "http://creativecommons.org/licenses/by-sa/4.0/");
+			add_location(a3, file$2, 179, 141, 5624);
+			set_style(span, "text-transform", "none");
+			add_location(span, file$2, 179, 307, 5790);
+			attr_dev(p5, "class", "updated-text svelte-15il7ul");
+			set_style(p5, "padding-bottom", "2%");
+			set_style(p5, "font-size", "14px");
+			set_style(p5, "color", "#666");
+			set_style(p5, "font-family", "'IBM Plex Mono', monospace");
+			add_location(p5, file$2, 179, 4, 5487);
+			attr_dev(footer, "class", "svelte-15il7ul");
+			add_location(footer, file$2, 177, 2, 5446);
 			set_style(main, "max-width", MAX_WIDTH + "px");
-			attr_dev(main, "class", "svelte-wgaio3");
-			add_location(main, file$2, 122, 0, 2303);
+			attr_dev(main, "class", "svelte-15il7ul");
+			add_location(main, file$2, 146, 0, 2375);
 		},
 		l: function claim(nodes) {
 			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -2040,52 +1901,22 @@ function create_fragment$2(ctx) {
 			append_dev(main, p3);
 			append_dev(main, t10);
 			append_dev(main, p4);
-			append_dev(main, t12);
-			append_dev(main, div2);
-			append_dev(div2, p5);
-			append_dev(p5, svg0);
-			append_dev(svg0, a2);
-			append_dev(a2, path0);
-			append_dev(p5, t13);
-			append_dev(p5, svg1);
-			append_dev(svg1, a3);
-			append_dev(a3, path1);
-			append_dev(p5, t14);
-			append_dev(p5, svg2);
-			append_dev(svg2, a4);
-			append_dev(a4, path2);
+			append_dev(p4, t11);
+			append_dev(p4, a2);
+			append_dev(p4, t13);
+			append_dev(main, t14);
+			append_dev(main, br);
 			append_dev(main, t15);
 			mount_component(grid, main, null);
 			append_dev(main, t16);
 			append_dev(main, footer);
 			mount_component(sectionheader, footer, null);
 			append_dev(footer, t17);
-			append_dev(footer, p7);
-			append_dev(p7, b2);
-			append_dev(p7, span4);
-			append_dev(span4, p6);
-			append_dev(span4, ul);
-			append_dev(ul, li0);
-			append_dev(li0, a5);
-			append_dev(li0, span0);
-			append_dev(ul, t20);
-			append_dev(ul, li1);
-			append_dev(li1, a6);
-			append_dev(li1, span1);
-			append_dev(ul, t22);
-			append_dev(ul, li2);
-			append_dev(li2, a7);
-			append_dev(li2, span2);
-			append_dev(ul, t24);
-			append_dev(ul, li3);
-			append_dev(li3, a8);
-			append_dev(li3, span3);
-			append_dev(footer, t26);
-			append_dev(footer, p8);
-			append_dev(p8, t27);
-			append_dev(p8, a9);
-			append_dev(p8, t29);
-			append_dev(p8, span5);
+			append_dev(footer, p5);
+			append_dev(p5, t18);
+			append_dev(p5, a3);
+			append_dev(p5, t20);
+			append_dev(p5, span);
 			current = true;
 		},
 		p: function update(ctx, [dirty]) {
@@ -2111,10 +1942,6 @@ function create_fragment$2(ctx) {
 				}
 
 				each_blocks.length = each_value.length;
-			}
-
-			if (dirty & /*contactFocused*/ 2) {
-				toggle_class(div2, "contactFocused", /*contactFocused*/ ctx[1]);
 			}
 		},
 		i: function intro(local) {
@@ -2199,7 +2026,7 @@ function instance$2($$self, $$props, $$invalidate) {
 	});
 
 	$$self.$inject_state = $$props => {
-		if ("contactFocused" in $$props) $$invalidate(1, contactFocused = $$props.contactFocused);
+		if ("contactFocused" in $$props) contactFocused = $$props.contactFocused;
 		if ("characters" in $$props) characters = $$props.characters;
 		if ("confetti" in $$props) $$invalidate(0, confetti = $$props.confetti);
 	};
@@ -2208,7 +2035,7 @@ function instance$2($$self, $$props, $$invalidate) {
 		$$self.$inject_state($$props.$$inject);
 	}
 
-	return [confetti, contactFocused];
+	return [confetti];
 }
 
 class App extends SvelteComponentDev {

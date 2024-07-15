@@ -67,12 +67,13 @@
   .description {
    // font-family: Inconsolata;
    color: #444;
+   font-size:90%;
    // color: #888;
   }
 
   .tools {
     font-family: 'Roboto', sans-serif;
-    color: #222;
+    color: #444;
     font-size:70%;
     line-height:0px;
   }
@@ -143,7 +144,7 @@
       {/if}
 
       {#if description}
-        <p class="description"><br>{description}</p>
+        <p class="description"><br><i>{description}</i></p>
       {/if}
 
       {#if tools}
