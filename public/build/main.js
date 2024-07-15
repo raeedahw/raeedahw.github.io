@@ -1573,7 +1573,7 @@ var projects = {
       image: 'images/asset-maps.jpg',
       // image: 'images/celeb-scroll.mov',
       url:
-        'https://www.bloomberg.com/graphics/2023-asset-management-relocation-wall-street-south/',
+        'https://www.bloomberg.com/graphics/2023-asset-management-relocation-wall-street-south/?terminal=1',
       description: 'Shoutout to our former intern, Jade!',
       tools: 'QGIS, Python, Illustrator'
     },
@@ -1583,7 +1583,7 @@ var projects = {
       //image: 'images/celeb-static.jpg',
       image: 'images/celeb-scroll.mov',
       url:
-        'https://www.bloomberg.com/graphics/2023-celebrity-beauty-brands-makeup-skincare/',
+        'https://www.bloomberg.com/graphics/2023-celebrity-beauty-brands-makeup-skincare/?terminal=1',
       tools: 'Svelte, Photoshop, Illustrator, SVG'
     },
     {
@@ -1591,7 +1591,7 @@ var projects = {
         'Small Gunmakers Find State Weapons Bans Offer a Lucrative Niche',
       image: 'images/gun-static.jpg',
       url:
-        'https://www.bloomberg.com/graphics/2022-gun-manufacturing/',
+        'https://www.bloomberg.com/graphics/2022-gun-manufacturing/?terminal=1',
       tools: 'QGIS, Photoshop, Illustrator, Excel'
     },
     {
@@ -1599,7 +1599,7 @@ var projects = {
         'A New Era of Climate Disasters Revives Calls for Climate Reparations',
       image: 'images/flood-map.mov',
       url:
-        'https://www.bloomberg.com/graphics/2022-pakistan-floods-climate-change-loss-damage-cop27/',
+        'https://www.bloomberg.com/graphics/2022-pakistan-floods-climate-change-loss-damage-cop27/?terminal=1',
       tools: 'Google Earth Engine, Copernicus Open Access Hub, QGIS, Illustrator, HTML/CSS, JS',
 
     },
@@ -1608,7 +1608,7 @@ var projects = {
         'Harvard’s Status as Wealthiest School Faces Oil-Rich Contender in the University of Texas',
       image: 'images/drone.mp4',
       url:
-        'https://www.bloomberg.com/graphics/2022-harvard-university-of-texas-richest-college-oil-endowments/',
+        'https://www.bloomberg.com/graphics/2022-harvard-university-of-texas-richest-college-oil-endowments/?terminal=1',
       tools: 'QGIS, Photoshop, Illustrator',
     },
     {
@@ -1624,14 +1624,14 @@ var projects = {
         'Supreme Court Ruling Jeopardizes Abortion Access for 33 Million Women',
       image: 'images/abortion-hover.mov',
       url:
-        'https://www.bloomberg.com/graphics/2022-supreme-court-roe-v-wade-abortion-access/',
+        'https://www.bloomberg.com/graphics/2022-supreme-court-roe-v-wade-abortion-access/?terminal=1',
     },
     {
       name:
         'Half of Russia’s 20 Richest Billionaires Are Not Sanctioned',
       image: 'images/sanctions.mov',
       url:
-        'https://www.bloomberg.com/graphics/2022-russian-billionaires-sanctioned-ukraine-war/',
+        'https://www.bloomberg.com/graphics/2022-russian-billionaires-sanctioned-ukraine-war/?terminal=1',
       tools: 'Excel, Python, Svelte, Illustrator',
     },
     {
@@ -1647,7 +1647,7 @@ var projects = {
         'Adams Won By Betting on a New York Divided By Race and Income',
       image: 'images/city.jpg',
       url:
-        'https://www.bloomberg.com/graphics/2021-nyc-mayoral-analysis/',
+        'https://www.bloomberg.com/graphics/2021-nyc-mayoral-analysis/?terminal=1',
       tools: 'QGIS, Excel, Python, Illustrator',
     },
 
