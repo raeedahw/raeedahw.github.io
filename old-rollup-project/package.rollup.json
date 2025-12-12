@@ -1,0 +1,38 @@
+{
+  "name": "home",
+  "homepage": "https://raeedahwahid.com",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "start": "sirv public",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d public -b master"
+  },
+"devDependencies": {
+  "@rollup/plugin-commonjs": "^29.0.0",
+  "@rollup/plugin-node-resolve": "^16.0.3",
+  "@rollup/plugin-terser": "^0.4.4",
+  "eslint": "^7.0.0",
+  "eslint-plugin-svelte3": "^2.7.3",
+  "gh-pages": "^2.2.0",
+  "rollup": "^4.0.0",
+  "rollup-plugin-livereload": "^1.0.0",
+  "rollup-plugin-svelte": "^7.2.3",
+  "svelte": "^5.2.12",
+  "svelte-preprocess": "^6.0.3"
+},
+  "dependencies": {
+    "node": "^20.19.6",
+    "sass": "^1.94.2",
+    "scroll-behavior-polyfill": "^2.0.13",
+    "sirv-cli": "^0.4.4"
+  },
+  "prettier": {
+    "trailingComma": "all",
+    "singleQuote": true,
+    "arrowParens": "avoid",
+    "svelteBracketNewLine": true
+  }
+}

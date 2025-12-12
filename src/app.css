@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;1,100;1,200;1,300;1,400&display=swap'); 
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+html,
+body {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color:#fff1f3;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/**
+ * Disable smooth scrolling when users have prefers-reduced-motion enabled
+ */
+@media screen and (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  color: #121212;
+  margin: 0;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 22px;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  background-color:#fff1f3;
+}
+
+a {
+  color: rgb(249, 0, 149);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  opacity: 65%;
+  transition: 0.3s;
+}
+
+::selection {
+  background: #fa007f;
+  /* background: #1cc7cb; */
+  color: white;
+}
+
+/* a:visited {
+  color: #337ab7;
+} */
+
+label {
+  display: block;
+}
+
+input,
+button,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  padding: 0.4em;
+  margin: 0 0 0.5em 0;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+}
+
+button {
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+  color: inherit;
+  outline: none;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+p {
+  margin: 0;
+  line-height: 29px;
+}
+
+header {
+  padding-top:20px;
+  font-size: 30px;
+  line-height: 29px;
+}
+
+@media (max-width: 660px) {
+  body {
+    font-size: 21px;
+    line-height: 27px;
+  }
+
+  header {
+    font-size: 28px;
+    line-height: 26px;
+  }
+
+  @media (max-width: 375px) {
+    body {
+      font-size: 21px;
+      line-height: 27px;
+    }
+  
+    header {
+      font-size: 26px;
+      line-height: 26px;
+    }
+}
+}
