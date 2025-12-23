@@ -11,7 +11,7 @@ const config = {
       assets: 'docs'
     }),
     paths: {
-      base: process.env.NODE_ENV === 'production' ? '' : '',
+      base: '',
       relative: false
     }
   }

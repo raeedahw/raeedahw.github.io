@@ -1,0 +1,18 @@
+# static/.htaccess
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Allow access to _app directory
+    <Directory "_app">
+        Allow from all
+    </Directory>
+    
+    # Set correct MIME types
+    <FilesMatch "\.(js|mjs)$">
+        Header set Content-Type "application/javascript"
+    </FilesMatch>
+    
+    <FilesMatch "\.(css)$">
+        Header set Content-Type "text/css"
+    </FilesMatch>
+</IfModule>
