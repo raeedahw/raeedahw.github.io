@@ -149,7 +149,7 @@
     width: min(280px, 47%);
 
     @media (max-width: 500px) {
-      top: calc(1.5vh + 10px);
+      top: calc(2vh + 10px);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -184,7 +184,7 @@
     z-index: 99;
 
     @media (max-width: 500px) {
-      top: 8vh;
+      top: 10vh;
       padding: 0 4%;
       transform: none;
     }
