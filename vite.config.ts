@@ -4,7 +4,14 @@ import { sveltekit } from '@sveltejs/kit/vite';
 
 export default defineConfig({
 	plugins: [sveltekit()],
-	  base: process.env.NODE_ENV === 'production' ? '/' : '/',
+	  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: '@use "sass:math";'
+      }
+    }
+  },
+	base: process.env.NODE_ENV === 'production' ? '/' : '/',
 	test: {
 		expect: { requireAssertions: true },
 		projects: [

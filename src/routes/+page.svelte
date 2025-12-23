@@ -379,7 +379,6 @@
         <button 
           class="bio-text" 
           class:active={showBioContent}
-          class:fade-out={showBioContent}
           on:click={handleBioClick}
         >
           {showBioContent ? 'CLOSE' : 'BIO'}
