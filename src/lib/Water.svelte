@@ -4,6 +4,7 @@
   import * as THREE from "three";
   import { Water } from "three/examples/jsm/objects/Water.js";
   import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
+  import { base } from '$app/paths';
 
   let container: HTMLDivElement;
 
@@ -14,7 +15,7 @@
   let water: Water;
   let animationFrameId: number;
 
-  const WATER_NORMALS_URL = "/images/waternormals.jpg";
+  $: WATER_NORMALS_URL = `${base}/images/waternormals.jpg`;
 
   function init() {
     if (!browser || !container) return;
@@ -30,21 +31,14 @@
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.setSize(width, height);
 
-    // Handle old vs new Three color API
-    if ("outputColorSpace" in renderer) {
-      // @ts-ignore
-      renderer.outputColorSpace = THREE.SRGBColorSpace;
-    } else {
-      // @ts-ignore
-      renderer.outputEncoding = THREE.sRGBEncoding;
-    }
+    // Handle color space
+    renderer.outputColorSpace = THREE.SRGBColorSpace;
 
     container.appendChild(renderer.domElement);
 
     // Scene & Camera
     scene = new THREE.Scene();
-    // Make background transparent or white
-    scene.background = null; // or new THREE.Color(0xffffff) for white
+    scene.background = null; // Transparent background
 
     camera = new THREE.PerspectiveCamera(55, width / height, 1, 20000);
     camera.position.set(0, 15, 10);
@@ -62,6 +56,10 @@
       WATER_NORMALS_URL,
       (texture) => {
         texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
+      },
+      undefined,
+      (error) => {
+        console.error('Error loading water normals:', error);
       }
     );
 
@@ -118,7 +116,7 @@
     const time = performance.now() * 0.001;
     const mat = water.material as THREE.ShaderMaterial;
     if (mat.uniforms && mat.uniforms["time"]) {
-      mat.uniforms["time"].value = time * 0.5; //speed
+      mat.uniforms["time"].value = time * 0.5; // Speed
     }
 
     controls.update();
@@ -172,7 +170,6 @@
     width: 100% !important;
     height: 100% !important;
     filter: contrast(1.2) brightness(1); 
-
   }
 </style>
 

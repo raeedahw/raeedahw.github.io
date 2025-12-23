@@ -4,6 +4,7 @@ import { sveltekit } from '@sveltejs/kit/vite';
 
 export default defineConfig({
 	plugins: [sveltekit()],
+	base: process.env.NODE_ENV === 'production' ? '/raeedahw.github.io/' : '/',
 	test: {
 		expect: { requireAssertions: true },
 		projects: [

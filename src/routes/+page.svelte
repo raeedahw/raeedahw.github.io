@@ -3,9 +3,15 @@
   import Water from '$lib/Water.svelte';
   // import Grid from '$lib/Grid.svelte';
   import { onMount, onDestroy } from 'svelte';
+  import { base } from '$app/paths';
 
   let showBioContent = false;
   let timeInterval;
+
+  $: backgroundImageUrl = `${base}/images/clouds.png`;
+  $: if (typeof document !== 'undefined') {
+    document.documentElement.style.setProperty('--bg-image', `url(${backgroundImageUrl})`);
+  }
 
   function handleBioClick() {
     showBioContent = !showBioContent;
@@ -55,7 +61,9 @@
   }
 
   :global(body) {
-    background: url('/images/clouds.png') center/cover no-repeat fixed;
+    background: var(--bg-image) center/cover no-repeat fixed;
+    margin: 0;
+    padding: 0;
   }
 
   .water-background {
@@ -323,7 +331,7 @@
     text-align: center;
     width: 90%;
 
-    &.fade-out { opacity: 0; }
+    // &.fade-out { opacity: 0; }
 
     @media (max-width: 500px) {
       position: fixed;
@@ -356,7 +364,7 @@
 <main style="max-width: {MAX_WIDTH}px">
   <div class="container">
     <div class="rectangle-container">
-      <img src="/images/grid_notebook.png" alt="Grid Notebook" class="rectangle-image" />
+      <img src="{base}/images/grid_notebook.png" alt="Grid Notebook" class="rectangle-image" />
       <div class="top-info">
         <div class="top-time-line">
           <span class="location">LDN</span> 

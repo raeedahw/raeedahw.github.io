@@ -11,7 +11,7 @@ const config = {
       assets: 'docs'
     }),
     paths: {
-      base: '',
+      base: process.env.NODE_ENV === 'production' ? '/raeedahw.github.io' : '',
       relative: false
     }
   }
