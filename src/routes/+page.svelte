@@ -8,7 +8,7 @@
   let showBioContent = false;
   let timeInterval;
 
-  $: backgroundImageUrl = `${base}/images/clouds_dithered.png`;
+  $: backgroundImageUrl = `${base}/images/clouds-dither-texture.png`;
   $: if (typeof document !== 'undefined') {
     document.documentElement.style.setProperty('--bg-image', `url(${backgroundImageUrl})`);
   }
