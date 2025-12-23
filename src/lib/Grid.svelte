@@ -1,155 +1,126 @@
-<script context="module">
-  let totalItems = 0;
-</script>
+<!-- WIP code -->
 
 <script>
-  import { MAX_WIDTH } from './constants';
+  import { onMount } from 'svelte';
 
-  export let projects;
-  export let columns = 3;
-
-  let colorOffset = totalItems;
-  totalItems += projects.length;
+  let gridContainer;
+  /** @type {{ x: number, y: number, color: string, id: number }[]} */
+  let coloredSquares = [];
 
   const colors = [
-    '#f90095',
+    '#FF4AC6',
   ];
 
-  const minFr = 500 - 100 * columns;
-
-  const columnGap = 18;
-
-  let clientWidth, mediaHeight, gridColumns;
-  $: {
-    let fr = (clientWidth - columnGap * (columns - 1)) / columns; // 1fr
-    if (fr < minFr) {
-      fr = clientWidth;
-      gridColumns = '1fr';
-    } else if (fr < minFr + 100) {
-      fr = (clientWidth - columnGap * (2 - 1)) / 2;
-      gridColumns = '1fr 1fr';
-    } else {
-      gridColumns = '1fr '.repeat(columns);
+  function isValidPosition(x, y, existingSquares) {
+    // Check if the new position is at least 3 cells away from all existing squares
+    for (const square of existingSquares) {
+      const distance = Math.max(Math.abs(x - square.x), Math.abs(y - square.y));
+      if (distance < 3) {
+        return false;
+      }
     }
-    mediaHeight = fr * (2 / 3);
+    return true;
   }
 
-  const color = index => colors[(colorOffset + index) % colors.length];
+  function generateRandomSquares() {
+    const squares = [];
+    let attempts = 0;
+    const maxAttempts = 1000; // Prevent infinite loop
+    
+    while (squares.length < 15 && attempts < maxAttempts) {
+      // Generate random position within expanded 15x15 area
+      // Center it in the 20x30 grid: x from 2.5-17.5, y from 7.5-22.5
+      const x = Math.floor(Math.random() * 13) + 4; // 3 to 17
+      const y = Math.floor(Math.random() * 15) + 8; // 8 to 22
+      
+      if (isValidPosition(x, y, squares)) {
+        squares.push({
+          x,
+          y,
+          color: colors[0],
+          id: squares.length
+        });
+      }
+      
+      attempts++;
+    }
+    
+    console.log(`Generated ${squares.length} squares in ${attempts} attempts`);
+    return squares;
+  }
+
+  onMount(() => {
+    coloredSquares = generateRandomSquares();
+  });
 </script>
 
 <style lang="scss">
-  .grid {
-    display: grid;
-    row-gap: 50px;
-  }
-
-  :global(.grid + .grid) {
-    margin-top: 50px;
-  }
-
-  .media {
+  .grid-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    margin-bottom: 14px;
-    img,
-    video {
-      object-fit: cover;
-      object-position: 50% top;
-      width: 100%;
-      height: 100%;
-      border: 1px solid #000;
-    }
+    height: 100%;
+    pointer-events: none;
+    z-index: 5;
+    transform: translateX(5px);
   }
 
-  :global(code) {
-    font-family: 'IBM Plex Mono', monospace;
-  }
-
-  .description {
-   // font-family: Inconsolata;
-   color: #444;
-   font-size:90%;
-   // color: #888;
-  }
-
-  .tools {
-    font-family: 'Roboto', sans-serif;
-    color: #444;
-    font-size:70%;
-    line-height:0px;
-  }
-
-  .meta {
-    font-family: Inconsolata;
-    white-space: nowrap;
-    font-size: 20px;
-    font-weight: 600;
-    opacity: 0.45;
-  }
-
-  .git {
+  .grid-container {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(20, 1fr);
+    grid-template-rows: repeat(30, 1fr);
     opacity: 1;
   }
 
-  .git a {
-    color: #898989;
-    font-weight: 400;
-    font-family: 'Rubik', sans-serif;
+  .grid-cell {
+    border: 1px solid transparent;
+    position: relative;
   }
 
-  p {
-    display: inline;
+  .colored-square {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 105%;
+    height: 105%;
+    z-index: 10;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+  }
+
+  .colored-square:hover {
+    opacity: 1;
+  }
+
+  /* Grid lines */
+  .grid-cell:nth-child(20n) {
+    border-right: 2px solid transparent;
+  }
+
+  .grid-cell:nth-child(n+581) {
+    border-bottom: 2px solid transparent;
   }
 </style>
 
-<div
-  class="grid"
-  style="grid-template-columns: {gridColumns}; column-gap: {columns > 1 ? columnGap : 0}px;
-  {columns === 1 && 'text-align: center'}"
-  bind:clientWidth
->
-  {#each projects as { name, image, description, tools, url, date, repo, data }, index}
-    <div>
-      <a href={url} target="_blank" style="color: {color(index)}">
-        <div class="media" style="height: {Math.round(mediaHeight)}px">
-          {#if image.includes('.mp4') || image.includes('.mov')}
-            <video autoPlay playsInline muted loop>
-              <source src={image} />
-            </video>
-          {:else}
-            <picture>
-              {#if image.includes('.webp')}
-                <source srcset="{image} 1x" type="image/webp" />
-              {/if}
-              <img src={image.replace('.webp', '.png')} alt={name} />
-            </picture>
-          {/if}
-        </div>
-        <p>
-          {@html name}
-          {#if date && date.length > 0}
-            <span class="meta">{date}</span>
-          {/if}
-        </p>
-      </a>
-
-      {#if repo}
-        <span class="meta git">
-          <a href="https://github.com/graphicsdesk/{repo}">[repo]</a>
-        </span>
-      {/if}
-      {#if data}
-        <span class="meta git">
-          <a href="https://github.com/graphicsdesk/{data}">[data]</a>
-        </span>
-      {/if}
-
-      {#if description}
-        <p class="description"><br><i>{description}</i></p>
-      {/if}
-
-      {#if tools}
-        <p class="tools"><br><b>Tools I used: </b>{tools}</p>
-      {/if}
-    </div>
-  {/each}
+<div class="grid-overlay">
+  <div class="grid-container" bind:this={gridContainer}>
+    <!-- Generate 600 grid cells (20x30) -->
+    {#each Array(600) as _, index}
+      {@const x = index % 20}
+      {@const y = Math.floor(index / 20)}
+      {@const coloredSquare = coloredSquares.find(square => square.x === x && square.y === y)}
+      
+      <div class="grid-cell">
+        {#if coloredSquare}
+          <div 
+            class="colored-square"
+            style="background-color: {coloredSquare.color};"
+          ></div>
+        {/if}
+      </div>
+    {/each}
+  </div>
 </div>

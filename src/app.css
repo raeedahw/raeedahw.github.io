@@ -1,12 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;1,100;1,200;1,300;1,400&display=swap'); 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/Inter-VariableFont_opsz,wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+* {
+  font-family: 'Inter', sans-serif !important;
+}
 
 html,
 body {
   position: relative;
   width: 100%;
   height: 100%;
-  background-color:#fff1f3;
+  background-color:#ffffff;
 }
 
 html {
@@ -23,31 +35,16 @@ html {
 }
 
 body {
-  color: #121212;
+  color: black;
   margin: 0;
-  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  /* font-family: Helvetica Neue, Helvetica, Arial, sans-serif; */
   font-size: 22px;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
-  background-color:#fff1f3;
+  background-color:#ffffff;
 }
 
-a {
-  color: rgb(249, 0, 149);
-  text-decoration: none;
-}
 
-a:hover {
-  text-decoration: underline;
-  opacity: 65%;
-  transition: 0.3s;
-}
-
-::selection {
-  background: #fa007f;
-  /* background: #1cc7cb; */
-  color: white;
-}
 
 /* a:visited {
   color: #337ab7;

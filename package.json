@@ -44,5 +44,8 @@
 		"onlyBuiltDependencies": [
 			"esbuild"
 		]
+	},
+	"dependencies": {
+		"three": "^0.181.2"
 	}
 }

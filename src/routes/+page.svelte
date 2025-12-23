@@ -1,194 +1,417 @@
 <script>
-  import Grid from '$lib/Grid.svelte';
-  import SectionHeader from '$lib/SectionHeader.svelte';
   import { MAX_WIDTH } from '$lib/constants';
-  import projects from '$lib/projects';
-  import { onMount } from 'svelte';
+  import Water from '$lib/Water.svelte';
+  // import Grid from '$lib/Grid.svelte';
+  import { onMount, onDestroy } from 'svelte';
 
-  let contactFocused = false;
+  let showBioContent = false;
+  let timeInterval;
 
-  let characters = ['✨'];
+  function handleBioClick() {
+    showBioContent = !showBioContent;
+  }
 
-	let confetti = new Array(20).fill()
-		.map((_, i) => {
-			return {
-				character: characters[i % characters.length],
-				x: Math.random() * 100,
-				y: -20 - Math.random() * 100,
-				r: 0.1 + Math.random() * 1
-			};
-		})
-		.sort((a, b) => a.r - b.r);
+  function updateTimes() {
+    const now = new Date();
+    const londonTime = now.toLocaleTimeString('en-GB', {
+      timeZone: 'Europe/London',
+      hour12: false,
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit'
+    });
+    const nycTime = now.toLocaleTimeString('en-US', {
+      timeZone: 'America/New_York',
+      hour12: false,
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit'
+    });
+    const londonElem = document.getElementById('london-time');
+    if (londonElem) londonElem.textContent = londonTime;
+    const nycElem = document.getElementById('nyc-time');
+    if (nycElem) nycElem.textContent = nycTime;
+  }
 
-	onMount(() => {
-		let frame;
+  onMount(() => {
+    updateTimes();
+    timeInterval = setInterval(updateTimes, 1000);
+  });
 
-		function loop() {
-			frame = requestAnimationFrame(loop);
-
-			confetti = confetti.map(emoji => {
-				emoji.y += 0.5 * emoji.r;
-				if (emoji.y > 240) emoji.y = -20;
-				return emoji;
-			});
-		}
-
-		loop();
-
-		return () => cancelAnimationFrame(frame);
-	});
-
+  onDestroy(() => {
+    clearInterval(timeInterval);
+  });
 </script>
 
-{#each confetti as c}
-	<emoji style="left: {c.x}%; top: {c.y}%">{c.character}</emoji>
-{/each}
-
 <style lang="scss">
+  :root {
+    --m-s: 10px;
+    --speed: 400ms;
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  :global(*) {
+    font-family: 'Inter', sans-serif !important;
+  }
+
+  :global(body) {
+    background: url('/images/clouds.png') center/cover no-repeat fixed;
+  }
+
+  .water-background {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    mix-blend-mode: multiply;
+    pointer-events: none;
+  }
+
   main {
     margin: 0 auto;
     padding: 0 40px;
+    position: relative;
+    z-index: 1;
+    overflow: hidden; 
+    max-height: 100vh;
   }
 
-  header {
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    position: relative;
+    
+  }
+
+  .rectangle-container {
+    width: 600px;
+    height: 850px;
+    position: relative;
+    font-size: 18px;
+    z-index: 2;
+
+    @media (max-width: 768px) {
+      width: 90vw;
+      height: 90vh;
+      max-width: 500px;
+      max-height: 700px;
+      font-size: 2.5vw;
+    }
+
+    @media (max-width: 480px) {
+      width: 95vw;
+      height: 85vh;
+      max-width: 400px;
+      max-height: 600px;
+      font-size: 3vw; 
+    }
+  }
+
+  .rectangle-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    pointer-events: none;
+    
+  }
+
+  .top-info {
+    position: absolute;
+    top: 2.2%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 10;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: min(80px, 13vw); 
+    width: min(280px, 47%);
+
+    @media (max-width: 500px) {
+      top: calc(5vh + 10px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      width: auto;
+      font-size: 1.1em;
+      opacity: 0.5;
+    }
+
+    .top-time-line {
+      font-size: 0.8em;
+      color: #FF4AC6;
+      font-weight: 500;
+      white-space: nowrap;
+
+      @media (max-width: 500px) {
+        color: white;
+      }
+    }
+  }
+
+  .nav-wrapper {
+    position: absolute;
+    top: 52%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
     display: flex;
     justify-content: space-between;
-    margin: 18px 0 22px;
+    align-items: center;
+    padding: 0 3.5%;
+    z-index: 99;
 
-    div:last-child {
-      text-align: right;
+    @media (max-width: 500px) {
+      top: 12vh;
+      padding: 0 4%;
+      transform: none;
     }
   }
 
-  .gray,
-  .gray a {
-    color: #888;
+  .bio-text {
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-size: 1em;
+    color: #333;
+    font-weight: bold;
+    transition: opacity var(--speed) var(--ease), color 0.3s ease;
+    pointer-events: auto;
+
+    &.active {
+      color: black;
+      &:hover { color: #FF4AC6; }
+    }
+    &:hover { color: #FF4AC6; }
+
+    @media (max-width: 500px) {
+      font-size: 1em;
+    }
   }
 
-  .resume,
-  .resume a {
-    font-size:22px;
-    color: #888;
+  .work-text-group {
+    text-align: center;
+    color: #333;
+    font-weight: bold;
+    font-size: 1em;
+    transition: opacity var(--speed) var(--ease), color 0.3s ease;
+
+    &:hover { color: #FF4AC6; }
+    &.fade-out { opacity: 0; }
+
+    @media (max-width: 500px) {
+      font-size: 1em;
+      line-height: 1.15;
+    }
   }
 
-  .nutgraf {
-    // width: 40%;
-    margin: 0 auto 21px;
-    padding-right:50%;
+  .coming-soon-text {
+    color: #FF4AC6;
+    font-weight: 400;
   }
 
-  .contact {
-    margin-bottom: 60px;
-    // font-family: Inconsolata;
-    font-size: 17px;
-    font-weight: 500;
-    line-height: 24px;
+  .work-text {
+    position: relative;
+    color: #333;
+    font-weight: bold;
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background-color: #FF4AC6;
+      transform: translateY(-50%);
+    }
+  }
+
+  .bio-content {
+    position: absolute;
+    top: 50px;
+    left: 3.5%;
+    right: 20px;
+    max-width: 500px;
+    font-size: 12px;
+    line-height: 1.3;
+    z-index: 10;
+    overflow: hidden;
+    max-height: 0;
+    padding: 0;
+    transition: max-height 1.5s cubic-bezier(0.4, 0.2, 0, 1);
+    pointer-events: none;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    gap: 15px;
+
+    &.show {
+      max-height: 400px;
+      pointer-events: auto;
+
+      @media (max-width: 768px) { max-height: 500px; }
+      @media (max-width: 480px) { font-size: 0.85em; max-height: 600px; }
+    }
+
+    @media (max-width: 768px) {
+      right: 15px;
+      top: 80px;
+      max-width: calc(100% - 30px);
+      font-size: 11px;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    @media (max-width: 500px) {
+      left: 4%;
+      right: 10px;
+      top: 30%; 
+      max-width: calc(100% - 30px);
+      font-size: 0.85em;
+      line-height: 1.15;
+      gap: 8px;
+    }
+  }
+
+  .bio-section {
+    display: flex;
+    flex-direction: column;
+
+    &.full-width { grid-column: 1 / -1; }
+
+    h3 {
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin: 0 0 5px 0;
+      color: #666;
+
+      @media (max-width: 768px) { font-size: 10px; margin: 0 0 4px 0; }
+      @media (max-width: 500px) { font-size: 1em; margin: 0 0 5px 0; }
+    }
 
     p {
-      display: inline-block;
-      padding: 3px 0;
-      transition-duration: 0.1s;
+      margin: 0 0 8px 0;
+      color: #333;
+      font-size: 12px;
+      line-height: 1.2;
+
+      @media (max-width: 768px) { font-size: 11px; margin: 0 0 6px 0; line-height: 1.3; }
+      @media (max-width: 500px) { font-size: 1em; }
     }
 
-    b {
-      font-weight: 800;
-    }
+    .item {
+      margin-bottom: 3px;
+      font-size: 12px;
+      line-height: 1.1;
 
-  
-    a {
-      color: #121212;
-      text-decoration: none;
-      border-bottom: 1px solid #cdcdcd;
-      &:hover {
-        border-bottom-color: #121212;
-      }
-    }
-    a:not(:nth-child(2)) {
-      margin-right: 5px;
-    }
-
-    &.contactFocused {
-      p {
-        background-color: #fbe1c4;
-      }
-      a {
-        border-bottom-color: rgba(255, 255, 255, 0.8);
-        border-bottom-width: 1.5px;
-      }
+      @media (max-width: 768px) { font-size: 11px; margin-bottom: 2px; line-height: 1.2; }
+      @media (max-width: 500px) { font-size: 1em; line-height: 1; margin-bottom: 2px; }
     }
   }
 
-  footer {
-    width: 56%;
-    margin: 0 auto 40px;
-  }
+  .bottom-text {
+    position: absolute;
+    bottom: 1%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.6em;
+    opacity: 0.4;
+    transition: opacity var(--speed) var(--ease);
+    text-align: center;
+    width: 90%;
 
-  .updated-text {
-    // text-transform: uppercase;
-    font-family: 'Helvetica';
-    font-size: 16px;
-    font-weight: 500;
-    color: #666;
-  }
+    &.fade-out { opacity: 0; }
 
-  @media (max-width: 600px) {
-    header {
-      margin-bottom: 48px;
-    }
-
-    .nutgraf,
-    footer {
+    @media (max-width: 500px) {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      transform: none;
+      font-size: 0.75em;
+      opacity: 0.3;
       width: 100%;
     }
   }
 
-	:global(body) {
-		overflow: scroll;
-	}
-	emoji {
-		position: absolute;
-		font-size: 2vw;
-		user-select: none;
-    z-index: 1;
-	}
-
+  // a {
+  //   color: black;
+  //   text-decoration: none;
+  //   &:hover { color: #FF4AC6 !important; transition: color 0.3s ease !important; }
+  //   &:visited { color: black; }
+  // }
 </style>
 
+<svelte:head>
+  <title>RW</title>
+</svelte:head>
+
+<div class="water-background">
+  <Water />
+</div>
+
 <main style="max-width: {MAX_WIDTH}px">
-
-  <header>
-    <div>
-      <p>
-        <b>Raeedah Wahid</b>
-      </p>
+  <div class="container">
+    <div class="rectangle-container">
+      <img src="/images/grid_notebook.png" alt="Grid Notebook" class="rectangle-image" />
+      <div class="top-info">
+        <div class="top-time-line">
+          <span class="location">LDN</span> 
+          <span class="time" id="london-time">00:00</span>
+        </div>
+        <div class="top-time-line">
+          <span class="location">NYC</span> 
+          <span class="time" id="nyc-time">00:00</span>
+        </div>
+      </div>
+      <div class="nav-wrapper">
+        <button 
+          class="bio-text" 
+          class:active={showBioContent}
+          class:fade-out={showBioContent}
+          on:click={handleBioClick}
+        >
+          {showBioContent ? 'CLOSE' : 'BIO'}
+        </button>
+        <div class="work-text-group" class:fade-out={showBioContent}>
+          <div class="coming-soon-text">COMING</div>
+          <div class="work-text">WORK</div>
+          <div class="coming-soon-text">SOON</div>
+        </div>
+      </div>
+      <div class="bio-content" class:show={showBioContent}>
+        <div class="bio-section full-width">
+          <h4>Raeedah is a visual designer. Her work explores the intersection of web technologies, art and information.</h4>
+          <p style="margin-top:-10px">Please e-mail for collaboration or inquires: raeedah.w[at]gmail.com</p>
+        </div>
+        <div class="bio-section">
+          <h3>Languages</h3>
+          <div class="item">English</div>
+          <div class="item">Urdu (اُردُو)</div>
+          <!-- <div class="item">French A1</div> -->
+        </div>
+        <div class="bio-section">
+          <h3>Skills</h3>
+          <div class="item">Digital design</div>
+          <div class="item">Web development</div>
+          <div class="item">3D modeling</div>
+          <div class="item">Geospatial tools</div>
+          <div class="item">Data processing</div>
+        </div>
+        <div class="bio-section full-width">
+          <h3>Experience</h3>
+          <div class="item">2022 – Present · Data Visualization @ Bloomberg L.P.</div>
+        </div>
+        <div class="bio-section full-width">
+          <h3>Education</h3>
+          <div class="item">2022 · Barnard College, Columbia University</div>
+          <div class="item">B.A. Computer Science-Human Rights</div>
+        </div>
+      </div>
+      <div class="bottom-text">© 2026 Raeedah Wahid رئدة واحد . All rights reserved.</div>
     </div>
-    <div>
-    </div>
-  </header>
-
-  <p class="nutgraf"> Data and graphics person at <a href="https://www.bloomberg.com/authors/AVRj3DR7f7s/raeedah-wahid" target="_blank"><b>Bloomberg</b></a>.</p>
-  <p class="nutgraf">  I live in New York City. I studied computer science on the Vision and Graphics track at Barnard College and Columbia University. (Also, human rights.)</p>
-  <p class="nutgraf">Most recently, I was on the team recognized as a <a style="font-weight:700;color:#444;" href="https://www.pulitzer.org/finalists/staff-bloomberg" target="_blank">2024 Pulitzer Prize Finalist in Explantory Reporting</a>.</p>
-
-
-  <!-- <div class="nutgraf contact" class:contactFocused>
-    <p>
-      <a style="all:unset;" href="https://twitter.com/raeedahwahid" target="_blank"><img class="x-logo-img" src="https://upload.wikimedia.org/wikipedia/commons/5/53/X_logo_2023_original.svg" alt="X logo" width="22" height="22"/></a>
-      <svg style="color: rgb(249, 0, 149);" width="30" height="25" viewBox="0 0 450 500"><a href="https://github.com/raeedahw" target="_blank"><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z" fill="#f90095"></path></a></svg>
-      <svg style="color: rgb(255, 0, 149);" width="30" height="23" fill="currentColor" class="bi bi-linkedin" viewBox="0 0 16 16"> <a href="https://www.linkedin.com/in/raeedah-wahid" target="_blank"> <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z" fill="#ff0095"></path></a></svg>
-    </p>
-  </div> -->
-
-  <br>
-
-  <Grid projects={projects.topLevel} />
-
-
-  <footer>
-    <SectionHeader empty />
-    <p class="updated-text" style="padding-bottom:2%; font-size: 14px; color: #666; font-family:'IBM Plex Mono', monospace;"> Made under the <a style="color:#666" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>. Updated July 2024. <span style="text-transform: none;"></p>
-
-    
-  </footer>
-
+  </div>
 </main>
