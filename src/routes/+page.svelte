@@ -60,10 +60,14 @@
     font-family: 'Inter', sans-serif !important;
   }
 
-  :global(body) {
+  :global(html, body) {
     background: var(--bg-image) center/cover no-repeat fixed;
     margin: 0;
     padding: 0;
+    height: 100vh;
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
   }
 
   .water-background {
@@ -79,16 +83,24 @@
     padding: 0 40px;
     position: relative;
     z-index: 1;
+    height: 100vh;
     overflow: hidden; 
-    max-height: 100vh;
+    // max-height: 100vh;
+
+    @media (max-width: 500px) {
+      padding: 0 20px;
+      height: 100vh;
+      overflow: hidden;
+    }
   }
 
   .container {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    height: 100vh;
     position: relative;
+    overflow: hidden
     
   }
 
@@ -137,7 +149,7 @@
     width: min(280px, 47%);
 
     @media (max-width: 500px) {
-      top: calc(5vh + 10px);
+      top: calc(1.5vh + 10px);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -172,7 +184,7 @@
     z-index: 99;
 
     @media (max-width: 500px) {
-      top: 12vh;
+      top: 8vh;
       padding: 0 4%;
       transform: none;
     }
