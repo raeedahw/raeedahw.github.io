@@ -254,7 +254,7 @@
     left: 3.5%;
     right: 20px;
     max-width: 500px;
-    font-size: 12px;
+    font-size: 13px;
     line-height: 1.3;
     z-index: 10;
     overflow: hidden;
@@ -289,7 +289,7 @@
       top: 30%; 
       max-width: calc(100% - 30px);
       font-size: 0.85em;
-      line-height: 1.15;
+      line-height: 1.4;
       gap: 8px;
     }
   }
@@ -302,7 +302,7 @@
 
     h3 {
       font-weight: 700;
-      font-size: 11px;
+      font-size: 13px;
       letter-spacing: 0.5px;
       text-transform: uppercase;
       margin: 0 0 5px 0;
@@ -315,7 +315,7 @@
     p {
       margin: 0 0 8px 0;
       color: #333;
-      font-size: 12px;
+      font-size: 13px;
       line-height: 1.2;
 
       @media (max-width: 768px) { font-size: 11px; margin: 0 0 6px 0; line-height: 1.3; }
@@ -324,11 +324,11 @@
 
     .item {
       margin-bottom: 3px;
-      font-size: 12px;
+      font-size: 13px;
       line-height: 1.1;
 
       @media (max-width: 768px) { font-size: 11px; margin-bottom: 2px; line-height: 1.2; }
-      @media (max-width: 500px) { font-size: 1em; line-height: 1; margin-bottom: 2px; }
+      @media (max-width: 500px) { font-size: 1em; line-height: 1.1; margin-bottom: 2px; }
     }
   }
 
