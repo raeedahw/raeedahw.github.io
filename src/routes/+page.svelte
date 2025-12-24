@@ -78,6 +78,11 @@
     pointer-events: none;
   }
 
+  ::selection {
+  background-color: rgba(0, 0, 0);
+  color: white;
+}
+
   main {
     margin: 0 auto;
     padding: 0 40px;
@@ -133,6 +138,10 @@
     height: 100%;
     object-fit: contain;
     pointer-events: none;
+    user-select: none; 
+    -webkit-user-select: none; // Safari
+    -moz-user-select: none; // Firefox
+    -webkit-touch-callout: none; // Prevent callout on iOS
     
   }
 
@@ -251,7 +260,7 @@
   .bio-content {
     position: absolute;
     top: 50px;
-    left: 3.5%;
+    left: 8%;
     right: 20px;
     max-width: 500px;
     font-size: 13px;
